@@ -1,0 +1,608 @@
+ /* General Styling */
+ body {
+     margin: 0;
+     font-family: 'Inter', sans-serif;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     background-color: #f0f2f5;
+     /* Light grey background for a clean look */
+     color: #333;
+     line-height: 1.6;
+ }
+
+ #root {
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+ }
+
+ .App {
+     text-align: center;
+     flex-grow: 1;
+     display: flex;
+     flex-direction: column;
+ }
+
+ /* Navbar Styling */
+ .navbar {
+     background-color: #2c3e50;
+     /* Dark blue/grey */
+     padding: 1rem 2.5rem;
+     /* More padding */
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+     /* Stronger, softer shadow */
+ }
+
+ .navbar-brand {
+     color: #ecf0f1;
+     text-decoration: none;
+     font-size: 2rem;
+     /* Larger font */
+     font-weight: 800;
+     /* Bolder */
+     letter-spacing: 1px;
+     /* More spacing */
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+ }
+
+ .navbar-nav {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     gap: 2rem;
+     /* Increased gap */
+ }
+
+ .nav-item {
+     margin: 0;
+ }
+
+ .nav-link {
+     color: #bdc3c7;
+     text-decoration: none;
+     font-size: 1.15rem;
+     padding: 0.7rem 1.4rem;
+     /* More padding */
+     transition: all 0.3s ease-in-out;
+     /* Smooth transitions */
+     border-radius: 8px;
+     /* More rounded */
+     font-weight: 500;
+ }
+
+ .nav-link:hover,
+ .nav-link.active {
+     color: #ffffff;
+     background-color: #34495e;
+     transform: translateY(-2px);
+     /* More pronounced lift */
+     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+ }
+
+ .logout-button {
+     background: none;
+     border: none;
+     cursor: pointer;
+     font-family: inherit;
+     font-size: inherit;
+     padding: 0;
+     color: #bdc3c7;
+     transition: color 0.3s ease;
+ }
+
+ .logout-button:hover {
+     color: #ffffff;
+ }
+
+ /* Auth Pages Styling (Login, Register) */
+ .auth-container {
+     max-width: 500px;
+     /* Wider */
+     margin: 5rem auto;
+     /* More vertical margin */
+     padding: 3.5rem;
+     /* More padding */
+     background-color: #ffffff;
+     border-radius: 20px;
+     /* Very rounded */
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+     /* Much stronger shadow */
+     text-align: center;
+     border: 1px solid #e0e0e0;
+     /* Subtle border */
+     animation: fadeIn 0.8s ease-out;
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .auth-container h2 {
+     color: #2c3e50;
+     margin-bottom: 3rem;
+     /* More margin */
+     font-size: 2.8rem;
+     /* Larger heading */
+     font-weight: 800;
+     /* Bolder */
+     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+ }
+
+ .auth-form .form-group {
+     margin-bottom: 2rem;
+     /* More margin */
+     text-align: left;
+ }
+
+ .auth-form label {
+     display: block;
+     margin-bottom: 0.8rem;
+     /* More margin */
+     color: #555;
+     font-weight: 600;
+     font-size: 1.1rem;
+     /* Slightly larger */
+ }
+
+ .auth-form input[type="email"],
+ .auth-form input[type="password"],
+ .auth-form input[type="text"],
+ .auth-form input,
+ .auth-form textarea {
+     width: calc(100% - 28px);
+     /* Account for padding */
+     padding: 15px 14px;
+     /* More padding */
+     border: 1px solid #dcdcdc;
+     border-radius: 12px;
+     /* More rounded */
+     font-size: 1.1rem;
+     color: #333;
+     transition: all 0.3s ease-in-out;
+     background-color: #fdfdfd;
+ }
+
+ .auth-form input:focus,
+ .auth-form textarea:focus {
+     border-color: #6a89cc;
+     /* A more subtle, modern blue */
+     box-shadow: 0 0 0 5px rgba(106, 137, 204, 0.2);
+     /* Stronger glow */
+     outline: none;
+     background-color: #ffffff;
+ }
+
+ .auth-form textarea {
+     min-height: 150px;
+     /* Taller textarea */
+     resize: vertical;
+ }
+
+ .auth-button {
+     background-color: #6a89cc;
+     /* Modern blue */
+     color: white;
+     padding: 18px 35px;
+     /* Larger button */
+     border: none;
+     border-radius: 12px;
+     /* More rounded */
+     font-size: 1.3rem;
+     /* Larger font */
+     font-weight: 700;
+     /* Bolder */
+     cursor: pointer;
+     transition: all 0.3s ease-in-out;
+     width: 100%;
+     margin-top: 2rem;
+     /* More margin */
+     letter-spacing: 0.7px;
+     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+ }
+
+ .auth-button:hover {
+     background-color: #5267a3;
+     /* Darker blue on hover */
+     transform: translateY(-4px);
+     /* More pronounced lift */
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+ }
+
+ .auth-button:active {
+     transform: translateY(0);
+     /* Press effect */
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ }
+
+ .auth-container p {
+     margin-top: 2.5rem;
+     font-size: 1.05rem;
+     color: #666;
+ }
+
+ .auth-container p a {
+     color: #6a89cc;
+     text-decoration: none;
+     font-weight: 600;
+     transition: text-decoration 0.2s ease;
+ }
+
+ .auth-container p a:hover {
+     text-decoration: underline;
+ }
+
+ .error-message {
+     color: #d9534f;
+     background-color: #fdeded;
+     border: 1px solid #d9534f;
+     padding: 15px;
+     border-radius: 10px;
+     margin-bottom: 2.5rem;
+     font-size: 1rem;
+     font-weight: 500;
+     text-align: left;
+ }
+
+ .success-message {
+     color: #5cb85c;
+     background-color: #eaf7ea;
+     border: 1px solid #5cb85c;
+     padding: 15px;
+     border-radius: 10px;
+     margin-bottom: 2.5rem;
+     font-size: 1rem;
+     font-weight: 500;
+     text-align: left;
+ }
+
+ /* General Page Layout */
+ .page-container {
+     padding: 3rem;
+     /* More padding */
+     max-width: 1400px;
+     /* Wider container */
+     margin: 3rem auto;
+     /* More margin */
+     background-color: #ffffff;
+     border-radius: 20px;
+     /* More rounded */
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+     /* Stronger shadow */
+     border: 1px solid #e0e0e0;
+     /* Subtle border */
+     animation: fadeIn 0.8s ease-out;
+ }
+
+ .page-title {
+     font-size: 2.8rem;
+     color: #2c3e50;
+     margin-bottom: 2.5rem;
+     font-weight: 800;
+     text-align: center;
+     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+ }
+
+ /* New styles for filters and sort on Dashboard */
+ .filters-and-sort {
+     display: flex;
+     flex-wrap: wrap;
+     /* Allow wrapping on smaller screens */
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 2.5rem;
+     padding: 2rem;
+     /* More padding */
+     background-color: #f9fbfd;
+     border-radius: 15px;
+     /* More rounded */
+     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+     /* More prominent inner shadow */
+     border: 1px solid #e5e9ec;
+     gap: 1.5rem;
+     /* Gap for wrapped items */
+ }
+
+ .filters {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 1.8rem;
+     /* Increased gap */
+     align-items: center;
+ }
+
+ .filters label {
+     font-weight: 600;
+     color: #555;
+     font-size: 1.05rem;
+ }
+
+ .filters select {
+     padding: 12px 18px;
+     /* More padding */
+     border: 1px solid #dcdcdc;
+     border-radius: 10px;
+     /* More rounded */
+     font-size: 1rem;
+     background-color: #ffffff;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+
+ .filters select:focus {
+     border-color: #6a89cc;
+     box-shadow: 0 0 0 4px rgba(106, 137, 204, 0.25);
+     outline: none;
+ }
+
+ .sort-buttons button {
+     background-color: #8da4b7;
+     /* Softer greyish blue */
+     color: white;
+     padding: 12px 22px;
+     /* More padding */
+     border: none;
+     border-radius: 10px;
+     /* More rounded */
+     font-size: 1rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     margin-left: 15px;
+     /* More margin */
+     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .sort-buttons button:hover {
+     background-color: #728a9e;
+     transform: translateY(-2px);
+     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+ }
+
+ /* Complaints Grid */
+ .complaints-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+     /* Larger min-width */
+     gap: 2.5rem;
+     /* Increased gap */
+     margin-top: 2.5rem;
+ }
+
+ .complaint-card {
+     background-color: #ffffff;
+     border-radius: 18px;
+     /* More rounded */
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+     /* Stronger, softer shadow */
+     padding: 2.5rem;
+     /* More padding */
+     text-align: left;
+     transition: all 0.3s ease-in-out;
+     border: 1px solid #e0e0e0;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .complaint-card:hover {
+     transform: translateY(-8px);
+     /* More pronounced lift */
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+     /* Much stronger shadow on hover */
+ }
+
+ .complaint-card h3 {
+     color: #2c3e50;
+     margin-top: 0;
+     margin-bottom: 1.2rem;
+     font-size: 1.8rem;
+     /* Larger font */
+     font-weight: 700;
+ }
+
+ .complaint-card p {
+     margin-bottom: 0.9rem;
+     color: #555;
+     font-size: 1rem;
+     /* Slightly larger */
+ }
+
+ .complaint-card strong {
+     color: #333;
+     font-weight: 600;
+ }
+
+ .complaint-card .status {
+     display: inline-block;
+     padding: 0.5rem 1rem;
+     /* More padding */
+     border-radius: 25px;
+     /* More rounded */
+     font-size: 0.9rem;
+     /* Slightly larger */
+     font-weight: 700;
+     text-transform: uppercase;
+     /* Uppercase status */
+     margin-top: 0.8rem;
+     margin-bottom: 1.2rem;
+     letter-spacing: 0.5px;
+ }
+
+ .status.pending {
+     background-color: #ffe082;
+     /* Muted yellow */
+     color: #a07a00;
+ }
+
+ .status.in-progress {
+     background-color: #90caf9;
+     /* Muted blue */
+     color: #1565c0;
+ }
+
+ .status.resolved {
+     background-color: #a5d6a7;
+     /* Muted green */
+     color: #388e3c;
+ }
+
+ .status.closed {
+     background-color: #bdbdbd;
+     /* Muted grey */
+     color: #505050;
+ }
+
+ .ai-response {
+     background-color: #e3f2fd;
+     /* Lighter blue for AI */
+     border-left: 5px solid #6a89cc;
+     /* Matching border color */
+     padding: 1.5rem;
+     /* More padding */
+     margin-top: 2rem;
+     border-radius: 10px;
+     font-size: 0.95rem;
+     color: #34495e;
+     box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05);
+ }
+
+ .ai-response strong {
+     color: #2c3e50;
+     display: block;
+     margin-bottom: 0.7rem;
+     font-size: 1rem;
+ }
+
+ .complaint-actions {
+     margin-top: auto;
+     padding-top: 2rem;
+     /* More padding */
+     border-top: 1px solid #eee;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 1rem;
+     /* More spacing between buttons */
+     justify-content: flex-end;
+ }
+
+ .complaint-actions button {
+     background-color: #6a89cc;
+     /* Primary action color */
+     color: white;
+     padding: 12px 20px;
+     border: none;
+     border-radius: 10px;
+     font-size: 1rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .complaint-actions button:hover {
+     background-color: #5267a3;
+     transform: translateY(-2px);
+     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+ }
+
+ .complaint-actions button.analyze-button {
+     background-color: #ffb300;
+     /* Amber for AI analysis */
+ }
+
+ .complaint-actions button.analyze-button:hover {
+     background-color: #fb8c00;
+ }
+
+ /* New styles for UserComplaintForm-specific elements */
+ .form-card {
+     background-color: #ffffff;
+     border-radius: 18px;
+     /* More rounded */
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+     /* Stronger, softer shadow */
+     padding: 3rem;
+     /* More padding */
+     max-width: 650px;
+     /* Wider form card */
+     margin: 2.5rem auto;
+     border: 1px solid #e0e0e0;
+ }
+
+ .form-card .form-group {
+     margin-bottom: 1.8rem;
+     text-align: left;
+ }
+
+ .form-card label {
+     display: block;
+     margin-bottom: 0.8rem;
+     color: #555;
+     font-weight: 600;
+     font-size: 1.05rem;
+ }
+
+ .form-card .form-input,
+ .form-card .form-textarea {
+     width: calc(100% - 28px);
+     padding: 14px 14px;
+     border: 1px solid #dcdcdc;
+     border-radius: 12px;
+     font-size: 1.05rem;
+     color: #333;
+     transition: all 0.3s ease;
+     background-color: #fdfdfd;
+ }
+
+ .form-card .form-input:focus,
+ .form-card .form-textarea:focus {
+     border-color: #6a89cc;
+     box-shadow: 0 0 0 4px rgba(106, 137, 204, 0.2);
+     outline: none;
+     background-color: #ffffff;
+ }
+
+ .form-card .form-textarea {
+     min-height: 160px;
+     resize: vertical;
+ }
+
+ .form-card .submit-button {
+     background-color: #6a89cc;
+     color: white;
+     padding: 16px 30px;
+     border: none;
+     border-radius: 12px;
+     font-size: 1.2rem;
+     font-weight: 700;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     width: 100%;
+     margin-top: 2rem;
+     letter-spacing: 0.7px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .form-card .submit-button:hover {
+     background-color: #5267a3;
+     transform: translateY(-3px);
+     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+ }
+
+ .form-card .submit-button:disabled {
+     background-color: #cccccc;
+     cursor: not-allowed;
+     box-shadow: none;
+     transform: translateY(0);
+ }
